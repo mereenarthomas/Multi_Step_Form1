@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Multi Step Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="form">
+      <div class="form-container">
+        <div class="form-sidebar">
+
+          <div class="step active">
+            <div class="circle">1</div>
+            <div class="step-content">
+              <span>Step 1</span>
+              <b>Your info</b>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="circle">2</div>
+            <div class="step-content">
+              <span>Step 2</span>
+              <b>Select plan</b>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="circle">3</div>
+            <div class="step-content">
+              <span>Step 3</span>
+              <b>Add-ons</b>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="circle">4</div>
+            <div class="step-content">
+              <span>Step 4</span>
+              <b>Summary</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="stp step-1 active">
+          <div class="header">
+            <h1 class="title">Personal info</h1>
+            <p class="exp">
+              Please provide your name, email address, and phone number.
+            </p>
+          </div>
+
+          <form>
+            <div class="label">
+              <label for="name">Name</label>
+              <p class="error">Please fill out this field.</p>
+            </div>
+            <input type="text" id="name" pattern="^[A-Za-z\s]{2,}$" placeholder="e.g. Rohit Sharma" required />
+
+            <div class="label">
+              <label for="email">Email Address</label>
+              <p class="error">Please fill out this field.</p>
+            </div>
+            <input type="email" id="email" placeholder="e.g. rohitshxrma@gmail.com" required />            
+
+            <div class="label">
+              <label for="phone">Phone Number</label>
+              <p class="error">Please fill out this field.</p>
+            </div>
+            <input type="tel" id="phone" pattern="^\+?[0-9]{10,15}$" placeholder="e.g. +91 23456 73890" required />
+
+          </form>
+          <div class="btns">
+            <button class="next-stp" type="submit">Next Step</button>
+          </div>
+        </div>
+
+        <div class="stp step-2">
+          <div class="header">
+            <h1 class="title">Select your plan</h1>
+            <p class="exp">You have the option of monthly or yearly billing.</p>
+          </div>
+
+          <form>
+            <div class="plan-card selected">
+              <img src="./assets/icon-arcade.svg" alt="" />
+              <div class="plan-info chosen">
+                <b>Arcade</b>
+                <div class="plan-price">₹90/mo</div>
+                <span class="offer" style="display:none;">2 months free</span>
+              </div>
+            </div>
+
+            <div class="plan-card">
+              <img src="./assets/icon-advanced.svg" alt="" />
+              <div class="plan-info">
+                <b>Advanced</b>
+                <div class="plan-price">₹120/mo</div>
+                <span class="offer" style="display:none;">2 months free</span>
+              </div>
+            </div>
+
+            <div class="plan-card">
+              <img src="./assets/icon-pro.svg" alt="" />
+              <div class="plan-info">
+                <b>Pro</b>
+                <div class="plan-price">₹150/mo</div>
+                <span class="offer" style="display:none;">2 months free</span>
+              </div>
+            </div>
+          </form>
+
+          <div class="switcher">
+            <p class="monthly sw-active">Monthly</p>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+            <p class="yearly">Yearly</p>
+          </div>
+
+          <div class="btns">
+            <button class="prev-stp" type="button">Go Back</button>
+            <button class="next-stp" type="submit">Next Step</button>
+          </div>
+        </div>
+
+        <div class="stp step-3">
+          <div class="header">
+            <h1 class="title">Pick add-ons</h1>
+            <p class="exp">Add-ons help enhance your gaming experience.</p>
+          </div>
+
+          <form>
+            <div class="box" data-id="1">
+              <input type="checkbox" id="online" />
+              <div class="description">
+                <label for="online">Online service</label>
+                <small>Access to multiplayer games</small>
+              </div>
+              <p class="price">+₹10/mo</p>
+            </div>
+
+            <div class="box" data-id="2">
+              <input type="checkbox" id="larger" />
+              <div class="description">
+                <label for="larger">Larger storage</label>
+                <small>Extra 1TB of cloud save</small>
+              </div>
+              <p class="price">+₹20/mo</p>
+            </div>
+
+            <div class="box" data-id="3">
+              <input type="checkbox" id="profile" />
+              <div class="description">
+                <label for="profile">Customizable Profile</label>
+                <small>Custom theme on your profile</small>
+              </div>
+              <p class="price">+₹20/mo</p>
+            </div>        
+          </form>
+
+          <div class="btns">
+            <button class="prev-stp" type="button">Go Back</button>
+            <button class="next-stp" type="submit">Next Step</button>
+          </div>
+        </div>
+
+        <div class="stp step-4">
+          <div class="header">
+            <h1 class="title">Finishing up</h1>
+            <p class="exp">
+              Double-check everything looks OK before confirming.
+            </p>
+          </div>
+
+          <div class="selection-box">
+            <div class="selection-container">
+              <div class="selected-plan">
+                <p class="plan-name">Arcade(Monthly)</p>
+                <p class="plan-price">₹90/mo</p>
+              </div>
+              <hr />
+              <div class="addons">
+                <template>
+                  <div class="selected-addon">
+                    <span class="service-name">Online service</span>
+                    <span class="service-price">+₹10/mo</span>
+                  </div>
+                </template>
+              </div>
+            </div>
+            <p class="total">Total (per month) <b>+₹120/mo</b></p>
+          </div>
+          <div class="btns">
+            <button class="prev-stp" type="button">Go Back</button>
+            <button class="confirm-stp" type="submit">Confirm</button>
+          </div>
+        </div>
+  
+        <div class="stp step-5">
+          <img src="./assets/icon-thank-you.svg" alt=""/>
+          <div class="header">
+            <h1 class="title">Thank you!</h1>
+            <p class="exp">
+              Thanks for confirming your subscription! We hope you have fun
+              using our platform. If you ever need support, please feel free to
+              email us at support@lunixgaming.com.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
